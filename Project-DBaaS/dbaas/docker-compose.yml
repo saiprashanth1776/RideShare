@@ -1,0 +1,34 @@
+version: '3.4'
+services:
+
+  db-service:
+    image: persdb:latest
+    build: ./persdb
+    expose:
+      - 8500
+    ports:
+      - 8500:8500
+    container_name: persdb
+    environment:
+      - TEAM_NAME=CC_0072_0206_0262_0704
+   
+  orchestrator:
+    image: orchestrator:latest
+    build: ./orchestrator
+    depends_on:
+      - "db-service"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    expose:
+      - 9500
+    ports:
+      - 9500:9500
+    container_name: orchestrator
+    environment:
+      - TEAM_NAME=CC_0072_0206_0262_0704
+
+networks:
+  default:
+    external:
+      name: dbaas-net
+    

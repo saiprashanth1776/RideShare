@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  users:
+    image: users:latest
+    build: ./users
+    volumes:
+      - ./users:/app
+    expose:
+      - 80
+    ports:
+      - 80:80
+    container_name: users
+    environment:
+      - TEAM_NAME=CC_0072_0206_0262_0704

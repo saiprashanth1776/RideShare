@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  rides:
+    image: rides:latest
+    build: ./rides
+    volumes:
+      - ./rides:/app
+    expose:
+      - 80
+    ports:
+      - 80:80
+    container_name: rides
+    environment:
+      - TEAM_NAME=CC_0072_0206_0262_0704

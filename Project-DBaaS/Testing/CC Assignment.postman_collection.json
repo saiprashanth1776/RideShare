@@ -1,0 +1,614 @@
+{
+	"info": {
+		"_postman_id": "a2255ca2-8235-45e7-b01f-fe9b16f28c3d",
+		"name": "CC Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Add User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"username\": \"u3\",\n\"password\": \"3d725109c7e7c0bfb9d709836735b56d943d263f\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{LB_USER}}:{{USER_PORT}}/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"{{LB_USER}}"
+							],
+							"port": "{{USER_PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{LB_USER}}:{{USER_PORT}}/api/v1/users/u1",
+							"protocol": "http",
+							"host": [
+								"{{LB_USER}}"
+							],
+							"port": "{{USER_PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"u1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{LB_USER}}:{{USER_PORT}}/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"{{LB_USER}}"
+							],
+							"port": "{{USER_PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "API Count (Users)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{LB_USER}}:{{USER_PORT}}/api/v1/users/_count",
+							"protocol": "http",
+							"host": [
+								"{{LB_USER}}"
+							],
+							"port": "{{USER_PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"_count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset API Count (Users)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{LB_USER}}:{{USER_PORT}}/api/v1/users/_count",
+							"protocol": "http",
+							"host": [
+								"{{LB_USER}}"
+							],
+							"port": "{{USER_PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"_count"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "These are the requests to be called over the load balancer to the users service.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e449a770-a620-4492-a21f-fa72fbfde33e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b376923b-cfd3-4109-986d-ea9ac63990a9",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Rides",
+			"item": [
+				{
+					"name": "Create New Ride",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"created_by\": \"u2\",\n\t\"timestamp\":\"28-03-2020:00-53-09\",\n\t\"source\":22,\n\t\"destination\":23\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{LB_RIDES}}:{{RIDES_PORT}}/api/v1/rides",
+							"protocol": "http",
+							"host": [
+								"{{LB_RIDES}}"
+							],
+							"port": "{{RIDES_PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"rides"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Join an Existing Ride",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\":\"u3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{LB_RIDES}}:{{RIDES_PORT}}/api/v1/rides/1",
+							"protocol": "http",
+							"host": [
+								"{{LB_RIDES}}"
+							],
+							"port": "{{RIDES_PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"rides",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All Upcoming Rides",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{LB_RIDES}}:{{RIDES_PORT}}/api/v1/rides?source=22&destination=23",
+							"protocol": "http",
+							"host": [
+								"{{LB_RIDES}}"
+							],
+							"port": "{{RIDES_PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"rides"
+							],
+							"query": [
+								{
+									"key": "source",
+									"value": "22"
+								},
+								{
+									"key": "destination",
+									"value": "23"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All Details of Ride",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{LB_RIDES}}:{{RIDES_PORT}}/api/v1/rides/1",
+							"protocol": "http",
+							"host": [
+								"{{LB_RIDES}}"
+							],
+							"port": "{{RIDES_PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"rides",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Total Number of Rides",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{LB_RIDES}}:{{RIDES_PORT}}/api/v1/rides/count",
+							"protocol": "http",
+							"host": [
+								"{{LB_RIDES}}"
+							],
+							"port": "{{RIDES_PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"rides",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Ride",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{LB_RIDES}}:{{RIDES_PORT}}/api/v1/rides/1",
+							"protocol": "http",
+							"host": [
+								"{{LB_RIDES}}"
+							],
+							"port": "{{RIDES_PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"rides",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "API Count (Rides)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{LB_RIDES}}:{{RIDES_PORT}}/api/v1/rides/_count",
+							"protocol": "http",
+							"host": [
+								"{{LB_RIDES}}"
+							],
+							"port": "{{RIDES_PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"rides",
+								"_count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset API Count (Rides)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{LB_RIDES}}:{{RIDES_PORT}}/api/v1/rides/_count",
+							"protocol": "http",
+							"host": [
+								"{{LB_RIDES}}"
+							],
+							"port": "{{RIDES_PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"rides",
+								"_count"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "These are the requests to be called over the loadbalancer to the rides microservice.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "691e3700-503e-4d54-912b-d8876b21ab3f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "94c490be-4298-447f-ade9-fb6c4f16e005",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "DbaaS",
+			"item": [
+				{
+					"name": "Cleanup Spawned Containers (Helper)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{ORCH}}:{{ORCH_PORT}}/cleanup",
+							"protocol": "http",
+							"host": [
+								"{{ORCH}}"
+							],
+							"port": "{{ORCH_PORT}}",
+							"path": [
+								"cleanup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DB Clear",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://{{ORCH}}:{{ORCH_PORT}}/api/v1/db/clear",
+							"protocol": "http",
+							"host": [
+								"{{ORCH}}"
+							],
+							"port": "{{ORCH_PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"db",
+								"clear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crash Master",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://{{ORCH}}:{{ORCH_PORT}}/api/v1/crash/master",
+							"protocol": "http",
+							"host": [
+								"{{ORCH}}"
+							],
+							"port": "{{ORCH_PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"crash",
+								"master"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crash Slave",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://{{ORCH}}:{{ORCH_PORT}}/api/v1/crash/slave",
+							"protocol": "http",
+							"host": [
+								"{{ORCH}}"
+							],
+							"port": "{{ORCH_PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"crash",
+								"slave"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Worker PIDS",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"table\": \"users\",\n\t\"columns\": [\"username\"],\n    \"condition\": {\n    \t\"username\": \"yash\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{ORCH}}:{{ORCH_PORT}}/api/v1/worker/list",
+							"protocol": "http",
+							"host": [
+								"{{ORCH}}"
+							],
+							"port": "{{ORCH_PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"worker",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Endpoints",
+			"item": [
+				{
+					"name": "Check Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{LB_USER}}:{{USER_PORT}}",
+							"protocol": "http",
+							"host": [
+								"{{LB_USER}}"
+							],
+							"port": "{{USER_PORT}}"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Rides",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{LB_RIDES}}:{{RIDES_PORT}}",
+							"protocol": "http",
+							"host": [
+								"{{LB_RIDES}}"
+							],
+							"port": "{{RIDES_PORT}}"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Orchestrator",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{ORCH}}:{{ORCH_PORT}}",
+							"protocol": "http",
+							"host": [
+								"{{ORCH}}"
+							],
+							"port": "{{ORCH_PORT}}"
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Scale Testing",
+			"item": [
+				{
+					"name": "Get users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{LB_USER}}:{{USER_PORT}}/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"{{LB_USER}}"
+							],
+							"port": "{{USER_PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
